@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="player1card">
+        </div>
+
+        <div class="timecontainer">
+            <div id="timer"><label id="minutes">00</label>:<label id="seconds">00</label></div>
+            <div class="nflips"></div>
+        </div>
+
+        <div class="player2card">
+        </div>
+    </header>
+        <div id="cardboard"></div>
+    <button id="startbtn" onclick="hideStart(); layCards(event)">Start Game</button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var board = new Vue({
+            el: '#cardboard',
+        });
+        
+        var player1 = new Vue({
+            el: '.player1card',
+            template:
+            `<div class="player1container">
+                <div class="player1card">
+                    <img src="avatar.png" alt="John" style="width:100%">
+                    <h1>Player 1</h1>
+                </div>
+                <span id="p1count" class="p1count">{{count}} Correct</span>
+            </div>`,
+            data: {
+                myTurn: true,
+                directhit: false,
+                count: 0,
+                clicked: 0
+
+            },
+        });
+        var player2 = new Vue({
+            el: '.player2card',
+            template:
+            `<div class="player2container">
+                <span id="p2count" class="p2count">{{count}} Correct</span>
+                <div class="player2card">
+                    <img src="avatar.png" alt="John" style="width:100%">
+                    <h1>Player 2</h1>
+                </div>
+            </div>`,
+            data: {
+                myTurn: false,
+                directhit: false,
+                count: 0,
+                clicked: 0
+
+            },
+        });
+        var info = new Vue({
+            el: '.nflips',
+            template:
+            `<div class="nflips">
+                <h1>{{numb}} flips</h1>
+            </div>`,
+            data: {
+                numb: 0
+            },
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
