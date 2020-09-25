@@ -1,4 +1,5 @@
 Assignment 6
 ============
 
-Add your files here.  The page should be called `index.html`.
+Memory-game from webprogramming course. View image.png to see final product, or fork repo en take a look!
+
